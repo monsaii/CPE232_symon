@@ -1,2 +1,2 @@
 # CPE232_symon
-hello github
+Hello github
