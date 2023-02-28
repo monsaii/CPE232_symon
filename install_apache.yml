@@ -4,21 +4,20 @@
   tasks:
 
   - name: install apache and php
-    apt: 
+    apt:
       name:
         - "{{ apache_package }}"
         - "{{ php_package }}"
       state: latest
       update_cache: yes
 
-
-  - name: update repository index
+  - name: update repository index Ubuntu
     apt:
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
 
-  - name: install apache2 and php packages for Ubuntu
+  - name: install apache2 package and php packages for Ubuntu
     apt:
       name: 
         - apache2
@@ -26,7 +25,6 @@
       state: latest
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
-
 
   - name: add PHP support for apache
     apt:
@@ -39,18 +37,18 @@
     when: ansible_distribution == "CentOS"
 
 
-  - name: install apache2 and php packages for CentOS
+  - name: install apache2 package and php packages for CentOS
     dnf:
       name: 
         - httpd
         - php
       state: latest
-      update_cache: yes
-    when: ansible_distribution == "CentOS"
-
+      udpate_cache: yes
+    when: ansible_distribution == "CentOs"
 
   - name: add PHP support for apache
     dnf:
       name: php
       state: latest
     when: ansible_distribution == "CentOS"
+
